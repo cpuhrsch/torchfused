@@ -10,7 +10,7 @@ import torch
 import torch.nn as nn
 from torch.cuda.amp import custom_bwd, custom_fwd
 
-from torchfused.activations import Activation
+from torchfused import Activation
 from torchfused.triton.k_activations import (
     get_triton_activation_bwd_kernel,
     get_triton_activation_kernel,

@@ -1,2 +1,1 @@
-from . import triton
-from . import Activation
+from .activation import Activation, build_activation

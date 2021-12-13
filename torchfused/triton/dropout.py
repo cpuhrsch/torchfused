@@ -13,12 +13,12 @@ import torch
 import triton
 from torch.cuda.amp import custom_bwd, custom_fwd
 
-from torchfused.activations import Activation, build_activation
-from torchfused.trition.k_activations import (
+from torchfused import Activation, build_activation
+from torchfused.triton.k_activations import (
     get_triton_activation_bwd_kernel,
     get_triton_activation_kernel,
 )
-from torchfused.trition.k_dropout import k_dropout_bw, k_dropout_fw
+from torchfused.triton.k_dropout import k_dropout_bw, k_dropout_fw
 
 
 # Helper to handle the SPMD launch grid and error cases
