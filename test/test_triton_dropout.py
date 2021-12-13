@@ -15,8 +15,16 @@ from torchfused.triton.dropout import FusedDropoutBias
 
 _triton_available = torch.cuda.is_available()
 
-from torchfused.triton import dropout as triton_dropout
-from torchfused.triton.utils import gpu_capabilities_older_than_70
+if _triton_available:
+    try:
+        from torchfused.triton import dropout as triton_dropout
+        from torchfused.triton.utils import gpu_capabilities_older_than_70
+
+    except ImportError:
+        logging.warning(
+            "Triton is not available, some optimizations will not be tested."
+        )
+        _triton_available = False
 
 # Testing odd shapes on purpose
 SHAPES = [
