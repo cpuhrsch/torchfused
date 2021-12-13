@@ -12,7 +12,7 @@ import torch
 import triton
 from torch.cuda.amp import custom_bwd, custom_fwd
 
-from xformers.triton.k_softmax import _softmax, _softmax_backward
+from torchfused.triton.k_softmax import _softmax, _softmax_backward
 
 # CREDITS: This is adapted from the vanilla Triton example. See https://openai.com/blog/triton/
 # and https://triton-lang.org/getting-started/tutorials/02-fused-softmax.html

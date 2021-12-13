@@ -9,7 +9,7 @@ from typing import Optional
 import triton
 import triton.language as tl
 
-from xformers.components import Activation
+from torchfused import Activation
 
 _kAlpha = math.sqrt(2.0 / math.pi)
 

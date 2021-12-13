@@ -10,13 +10,13 @@ import torch
 import torch.nn as nn
 from torch.cuda.amp import custom_bwd, custom_fwd
 
-from xformers.components.activations import Activation
-from xformers.triton.k_activations import (
+from torchfused.activations import Activation
+from torchfused.triton.k_activations import (
     get_triton_activation_bwd_kernel,
     get_triton_activation_kernel,
 )
-from xformers.triton.k_fused_matmul_bw import fused_matmul_backward
-from xformers.triton.k_fused_matmul_fw import fused_matmul
+from torchfused.triton.k_fused_matmul_bw import fused_matmul_backward
+from torchfused.triton.k_fused_matmul_fw import fused_matmul
 
 
 class _fused_linear_triton(torch.autograd.Function):
